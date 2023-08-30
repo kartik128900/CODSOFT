@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+class practice {
+    private static double fetchExchangeRate(String baseCurrency, String targetCurrency) {
+        return 0.5 + Math.random() * 1.5;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your Base currency : ");
+        String baseCurrency = sc.nextLine();
+        System.out.println("Enter your Target currency : ");
+        String targetCurrency = sc.nextLine();
+        double exchangeRate = fetchExchangeRate(baseCurrency, targetCurrency);
+        if (exchangeRate == -1) {
+            System.out.println("Error fetching exchange rates. Exiting...");
+            return;
+        }
+        System.out.print("Enter amount to convert: ");
+        double amount = sc.nextDouble();
+        double convertedAmount = amount * exchangeRate;
+        System.out.println("Converted amount: " + convertedAmount + " " + targetCurrency);
+    }
+}
